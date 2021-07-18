@@ -1,14 +1,15 @@
 from typing import List, Dict
 import mysql.connector
 import simplejson as json
-from flask import Flask, Response
+from flask import Flask, Response, app
+
 
 def cities_import() ->List[Dict]:
     config = {
         'user': 'root',
         'password': 'root',
         'host': 'db',
-        'database: 'citiesData'
+        'database': 'citiesData'
     }
     connection = mysql.connector.connect(**config)
     cursor = connection.cursor(dictionary=True)
